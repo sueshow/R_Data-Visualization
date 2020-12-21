@@ -22,7 +22,7 @@ plotData %>%
   geom_point( aes(x=level, y=mean) ) +
   geom_errorbar( aes(x=level, ymin=cil, ymax=ciu) )
 ```
-
+<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg" width=800>
 <br>
 
 ## Bar
@@ -54,6 +54,7 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
   theme_minimal() +
   theme( legend.position = "bottom" )
 ```
+<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg" width=800>
 <br>
 
 ## Histogram
@@ -74,10 +75,12 @@ ggplot( dats, aes(pred, fill=var) ) +
   geom_histogram( alpha = 0.5, position = "identity", bins = 75 ) +
   geom_vline( xintercept=prediction_1 )
 ```
+<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg" width=800>
 <br>
 
 ## 更多參考資訊
-
+![更多參考資訊](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot.png)
+<br>
 
 ## 參考資料
 * https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html
