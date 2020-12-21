@@ -75,7 +75,7 @@ ggplot( dats, aes(pred, fill=var) ) +
   geom_histogram( alpha = 0.5, position = "identity", bins = 75 ) +
   geom_vline( xintercept=prediction_1 )
 ```
-<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg" width=800>
+![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
 ## 更多參考資訊
