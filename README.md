@@ -22,7 +22,7 @@ plotData %>%
   geom_point( aes(x=level, y=mean) ) +
   geom_errorbar( aes(x=level, ymin=cil, ymax=ciu) )
 ```
-<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg" width=800>
+![ggplot_errorbar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_errorbar.jpeg)
 <br>
 
 ## Bar
@@ -54,7 +54,7 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
   theme_minimal() +
   theme( legend.position = "bottom" )
 ```
-<img src="https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg" width=800>
+![ggplot_bar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg)
 <br>
 
 ## Histogram
