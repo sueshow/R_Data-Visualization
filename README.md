@@ -78,6 +78,32 @@ ggplot( dats, aes(pred, fill=var) ) +
 ![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
+## Dashboard
+### 簡介
+* Shiny 主要特色：將資料分析結果轉換成互動式的網頁應用程式
+* 使用者介面 (User Interface)：通常會使用 `dashboardPage()` 函數建構，而非常見的 `fluidPage()` 函數
+  * 儀表板標頭 (header)：`dashboardHeader()`，不需要也可關掉 `disable=TRUE`
+    * 標題：`title`
+    * 訊息選單：`messageItem()`
+    * 通知選單：`notificationItem()`
+    * 工作選單：`taskItem()`
+    * 若想在後端修改選單元件，則需使用 `dropdownMenuOutput()` 設定輸出元件，並在伺服器端程式用 `renderMenu()` 作動態設定
+  * 側邊選單 (sidebar)：`dashboardSidebar()`
+    * 每個選單 `sidebarMenu()` 中可有多個選項 `meunItem()`
+    * 在選項中除可在第一個參數設定選項名稱外，也必須用 `tabName` 參數設定選項ID，以及 `icon` 參數加上圖示
+  * 主頁面 (body)：`dashboardBody()`，不需要也可關掉 `disable=TRUE`
+    * 使用 `tabItems()` 來排版
+* 伺服器端程式 (Server Instruction)
+
+* 重要議題：
+  * 快速將資料載入：考慮批次方式，先作預處理，降低資料量，以加快資料存取速度
+* 資料呈現方式：
+  * 數字與文字：`renderText()`
+  * 表格：`renderTable()`，DT套件支援互動式表格
+  * 圖片：`renderPlot()`
+  * 地圖：`ggmap` 套件或 `leaflet` 套件支援互動式地圖
+
+
 ## 更多參考資訊
 ![更多參考資訊](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot.png)
 <br>
