@@ -111,4 +111,5 @@ ggplot( dats, aes(pred, fill=var) ) +
 <br>
 
 ## 參考資料
-* https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html
+* ![ggplot2](https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html)
+* ![shinydashboard](https://rstudio.github.io/shinydashboard/)
