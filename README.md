@@ -113,3 +113,4 @@ ggplot( dats, aes(pred, fill=var) ) +
 ## 參考資料
 * [ggplot2](https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html)
 * [shinydashboard](https://rstudio.github.io/shinydashboard/)
+* [shiny from Rstudio](https://shiny.rstudio.com/gallery/)
