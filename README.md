@@ -26,6 +26,8 @@ plotData %>%
 <br>
 
 ## Bar
+* 探索類別
+* 已經統計過的資訊，繪製長條圖就必須要指定一個參數 `stat="identity"`
 ```
 TFMqe <- data.frame( stringsAsFactors= FALSE,
                      Group = c("Non-Fertile Chip",
@@ -58,9 +60,14 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
 <br>
 
 ## box
+* 探索不同類別與數值分佈的關係
+```
+geom_boxplot()
+```
 <br>
 
 ## Histogram
+* 探索數值分佈
 ```
 prediction_1 = 0.469
 prediction_3 <- data.frame( prediction_3=rnorm(1000, 4, 3) )  
@@ -81,7 +88,24 @@ ggplot( dats, aes(pred, fill=var) ) +
 ![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
+## point
+* 探索兩個數值的關係
+```
+geom_point()
+```
+<br>
+
+## line
+* 探索數值與日期 (時間) 的關係
+```
+geom_line()
+```
+<br>
+
 ## curve
+```
+stat_function(fun, geom = "line")
+```
 <br>
 
 ## Taiwan Map
