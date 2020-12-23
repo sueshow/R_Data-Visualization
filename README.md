@@ -57,6 +57,9 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
 ![ggplot_bar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg)
 <br>
 
+## box
+<br>
+
 ## Histogram
 ```
 prediction_1 = 0.469
