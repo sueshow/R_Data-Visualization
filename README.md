@@ -90,10 +90,10 @@ ggplot( dats, aes(pred, fill=var) ) +
     * 若想在後端修改選單元件，則需使用 `dropdownMenuOutput()` 設定輸出元件，並在伺服器端程式用 `renderMenu()` 作動態設定
   * 側邊選單 (sidebar)：`dashboardSidebar()`
     * 每個選單 `sidebarMenu()` 中可有多個選項 `meunItem()`
-    * 在選項中除可在第一個參數設定選項名稱外，也必須用 tabName 參數設定選項ID，以及 `icon` 參數加上圖示
+    * 在選項中除可在第一個參數設定選項名稱外，也必須用 `tabName` 參數設定選項ID，以及 `icon` 參數加上圖示
   * 主頁面 (body)：`dashboardBody()`，不需要也可關掉 `disable=TRUE`
     * 使用 `tabItems()` 來排版
-    * 在 `tabItems()` 中可用多個 `tabItem()` 來對應側邊欄位的每個選項，對應方式為設定相同的 tabName
+    * 在 `tabItems()` 中可用多個 `tabItem()` 來對應側邊欄位的每個選項，對應方式為設定相同的 `tabName`
     * 在 `tabItems()` 中，再使用列 `fluidRow` 和欄位 `column` 或資訊區塊 `box` 的方式將圖表排版
 * 伺服器端程式 (Server Instruction)
   * 資料呈現方式：
