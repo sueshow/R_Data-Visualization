@@ -96,14 +96,14 @@ ggplot( dats, aes(pred, fill=var) ) +
     * 在 `tabItems()` 中可用多個 `tabItem()` 來對應側邊欄位的每個選項，對應方式為設定相同的 tabName
     * 在 `tabItems()` 中，再使用列 `fluidRow` 和欄位 `column` 或資訊區塊 `box` 的方式將圖表排版
 * 伺服器端程式 (Server Instruction)
-
+  * 資料呈現方式：
+    * 數字與文字：`renderText()`
+    * 表格：`renderTable()`，DT套件支援互動式表格
+    * 圖片：`renderPlot()`
+    * 地圖：`ggmap` 套件或 `leaflet` 套件支援互動式地圖
 * 重要議題：
   * 快速將資料載入：考慮批次方式，先作預處理，降低資料量，以加快資料存取速度
-* 資料呈現方式：
-  * 數字與文字：`renderText()`
-  * 表格：`renderTable()`，DT套件支援互動式表格
-  * 圖片：`renderPlot()`
-  * 地圖：`ggmap` 套件或 `leaflet` 套件支援互動式地圖
+
 <br>
 
 ## 更多參考資訊
