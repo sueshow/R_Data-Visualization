@@ -78,6 +78,10 @@ ggplot( dats, aes(pred, fill=var) ) +
 ![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
+## Taiwan Map
+![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
+<br>
+
 ## Dashboard
 ### 簡介
 * Shiny 主要特色：將資料分析結果轉換成互動式的網頁應用程式
