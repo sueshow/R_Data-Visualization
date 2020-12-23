@@ -79,7 +79,7 @@ ggplot( dats, aes(pred, fill=var) ) +
 <br>
 
 ## Taiwan Map
-![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
+![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/injury%20map_A.jpeg)
 <br>
 
 ## Dashboard
