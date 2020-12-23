@@ -67,7 +67,7 @@ k <- 2
   
   county2010$grouping <- grouping.vt
   win.graph(width=20, height=25)
-
+  jpeg(file=paste("output/injury map_",name.title,".jpeg",sep=""))
   spplot(county2010, "grouping", col.regions=col, colorkey=FALSE, main=name.title,xlim=c(118,124), ylim=c(21.6,26.3))
-  savePlot(filename=paste("output/injury map_",name.title,sep=""),type="wmf")
+  #savePlot(filename=paste("output/injury map_",name.title,sep=""),type="wmf")
   dev.off()
