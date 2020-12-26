@@ -108,7 +108,29 @@ stat_function(fun, geom = "line")
 ```
 <br>
 
-## Taiwan Map
+## Map
+### Sp
+```
+require(raster)
+require(sp)
+require(lattice)
+library(grid)
+
+north <- list("SpatialPolygonsRescale", layout.north.arrow(type=1), offset=c(0.95,0.85), scale=0.1)
+scale <- list("SpatialPolygonsRescale", layout.scale.bar(),
+              offset=c(0.55, 0.03), scale=0.4, fill=c("transparent","black"))
+txt1 <- list("sp.text", c(0.55, 0.08), "0")
+txt2 <- list("sp.text", c(0.75, 0.08), "0.2")
+txt3 <- list("sp.text", c(0.95, 0.08), "0.4")
+raster_layout <- list(north, scale, txt1, txt2, txt3)
+cuts <- c(110, 120, 130, 140, 150, 160, 170, 180, 190, 200)
+spplot(raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0,0.9,len=9))), sp.layout=raster_layout, add=T)
+grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
+```
+![Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/spplot_example.jpeg)
+<br>
+
+### Taiwan
 ![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/injury%20map_A.jpeg)
 <br>
 
