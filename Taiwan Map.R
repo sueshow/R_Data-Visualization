@@ -10,8 +10,8 @@ path <- setwd("D:/資料分析彙整/Project/2016 Taiwan Map")
 library(sp)
 library(RColorBrewer)
 #library(rjson)
-library(jsonlite)
-library(rstan)
+#library(jsonlite)
+#library(rstan)
 
 #下載 Rtwmap 套件
 install.packages("devtools")
@@ -70,6 +70,7 @@ k <- 2
   grouping.vt[ which(number.vt>q3.vt) ] <- 4
   
   col <- brewer.pal(4,"Blues")
+  cuts <- c(1,2,3,4)
   
   county2010$grouping <- grouping.vt
   #方法一(wmf)清晰版
@@ -77,10 +78,13 @@ k <- 2
   spplot(county2010, "grouping", col.regions=col, colorkey=FALSE, main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
   savePlot( filename=paste("output/injury map_", name.title,sep=""), type="wmf" )
   dev.off()
-  #方法二(jpeg)
+  #方法二(jpeg)加label
   win.graph(width=20, height=25)
   dev.copy(jpeg, paste("./output/injury map_", name.title, ".jpeg", sep=""))
-  spplot(county2010, "grouping", col.regions=col, colorkey=list(space="left", height=0.4), main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
+  spplot(county2010, "grouping", col.regions=col, 
+         colorkey=list(at=seq(0, 4, 1), labels=as.character(c( "0", "1", "2", "3", "4" )), 
+                       col=col, space="left", height=0.4), 
+         main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
   dev.off()
 
   
@@ -99,6 +103,6 @@ txt3 <- list("sp.text", c(0.95, 0.08), "0.4")
 raster_layout <- list(north, scale, txt1, txt2, txt3)
 cuts <- c(110, 120, 130, 140, 150, 160, 170, 180, 190, 200)
 jpeg(filename="spplot2.jpg", width=480, height=480, units="px")
-spplot(raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0,0.9,len=9))), sp.layout=raster_layout, add=T)  
+spplot(raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0, 0.9, len=9))), sp.layout=raster_layout, add=T)  
 grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
 dev.off()  
