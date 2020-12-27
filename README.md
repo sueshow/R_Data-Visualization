@@ -131,6 +131,13 @@ grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
 <br>
 
 ### Taiwan
+```
+#(NOT RUN)
+spplot(county2010, "grouping", col.regions=col, 
+         colorkey=list(at=seq(0, 4, 1), labels=as.character(c( "0", "1", "2", "3", "4" )), 
+                       col=col, space="left", height=0.4), 
+         main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
+```
 ![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/injury%20map_A.jpeg)
 <br>
 
