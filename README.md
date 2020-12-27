@@ -114,7 +114,7 @@ stat_function(fun, geom = "line")
 require(raster)
 require(sp)
 require(lattice)
-library(grid)
+require(grid)
 
 north <- list("SpatialPolygonsRescale", layout.north.arrow(type=1), offset=c(0.95,0.85), scale=0.1)
 scale <- list("SpatialPolygonsRescale", layout.scale.bar(),
