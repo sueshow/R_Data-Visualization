@@ -25,14 +25,6 @@ library(Rtwmap)
 #2.解壓縮後，將資料夾放置R中的library裡，名稱改為"Rtwmap"
 #3.只能在R上執行，無法使用RStudio執行
 
-map_nm <- "county2010"
-result <- fromJSON( paste(path, "/map/", map_nm, ".json", sep="") )
-#result_data_frame <- as.data.frame(result)
-head(result)
-
-data <- readRDS( file=paste0(path, "/raw data/", map_nm, ".rda") )
-
-
 
 data(county2010)
 
@@ -80,7 +72,7 @@ k <- 2
   col <- brewer.pal(4,"Blues")
   
   county2010$grouping <- grouping.vt
-  #方法一(wmf)
+  #方法一(wmf)清晰版
   win.graph(width=20, height=25)
   spplot(county2010, "grouping", col.regions=col, colorkey=FALSE, main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
   savePlot( filename=paste("output/injury map_", name.title,sep=""), type="wmf" )
@@ -96,7 +88,7 @@ k <- 2
 require(raster)
 require(sp)
 require(lattice)
-library(grid)
+require(grid)
   
 north <- list("SpatialPolygonsRescale", layout.north.arrow(type=1), offset=c(0.95,0.85), scale=0.1)
 scale <- list("SpatialPolygonsRescale", layout.scale.bar(),
@@ -106,6 +98,7 @@ txt2 <- list("sp.text", c(0.75, 0.08), "0.2")
 txt3 <- list("sp.text", c(0.95, 0.08), "0.4")
 raster_layout <- list(north, scale, txt1, txt2, txt3)
 cuts <- c(110, 120, 130, 140, 150, 160, 170, 180, 190, 200)
+jpeg(filename="spplot2.jpg", width=480, height=480, units="px")
 spplot(raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0,0.9,len=9))), sp.layout=raster_layout, add=T)  
 grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
-  
+dev.off()  
