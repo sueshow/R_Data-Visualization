@@ -217,4 +217,4 @@ spplot( county2010, "grouping", col.regions=col,
 * [shinydashboard](https://rstudio.github.io/shinydashboard/)
 * [shiny from Rstudio](https://shiny.rstudio.com/gallery/)
 * [R](https://rstudio.com/resources/cheatsheets/)
-* [R M](http://www.hmwu.idv.tw/web/R/E04-hmwu_R-Map.pdf)
+* [R Map](http://www.hmwu.idv.tw/web/R/E04-hmwu_R-Map.pdf)
