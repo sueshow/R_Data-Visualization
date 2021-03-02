@@ -5,14 +5,15 @@
 library(ggplot2)
 library(plyr)
 library(tidyverse)
+library(gridExtra)
 ```
 <br>
 
 
 ## Scatter Plot
 ```
-ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
-geom_point(size=3)
+ggplot( data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species) ) +
+       geom_point( size=3 )
 ```
 【圖】
 <br>
@@ -40,12 +41,12 @@ plotData %>%
 * 探索類別
 * 已經統計過的資訊，繪製長條圖就必須要指定一個參數 `stat="identity"`
 ```
-TFMqe <- data.frame( stringsAsFactors= FALSE,
-                     Group = c("Non-Fertile Chip",
+TFMqe <- data.frame( stringsAsFactors=FALSE,
+                     Group=c( "Non-Fertile Chip",
                                "Non-Fertile Chip","Fertile Chip","Fertile Chip",
                                "Non-Fertile Chip","Fertile Chip","Non-Fertile Chip",
                                "Non-Fertile Chip","Fertile Chip","Non-Fertile Chip"),
-                     NTopQualityEmbryos = c("Yes","Yes","Yes","Yes",
+                     NTopQualityEmbryos=c("Yes","Yes","Yes","Yes",
                                             "Yes","No","Yes","Yes","No","No")
 )
 
@@ -54,12 +55,12 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
                    fill=Group) ) +
   geom_bar( position=position_dodge2()) +
   geom_text( aes(label=scales::percent(stat(count/sum(count)), 
-             accuracy = 0.01)),
-             position = position_dodge2(.9),
-             vjust = 1.6,
-             color = "white",
-             size = 3.5,
-             stat = "count" ) +
+             accuracy=0.01)),
+             position=position_dodge2(.9),
+             vjust=1.6,
+             color="white",
+             size=3.5,
+             stat="count" ) +
   scale_y_continuous( label=scales::label_percent() ) +
   labs( x="NTopQualityEmbryos",
         y="Percentatges",
@@ -87,20 +88,32 @@ prediction_3 <- data.frame( prediction_3=rnorm(1000, 4, 3) )
 prediction_2b <- data.frame( prediction=rnorm(10000, 8, 3) )
 
 ggplot( prediction_3 ) +
-  geom_histogram( aes(x=prediction_3), binwidth = 0.01 )
+  geom_histogram( aes(x=prediction_3), binwidth=0.01 )
 ggplot(prediction_2b) +
-  geom_histogram( aes(x=prediction), binwidth = 0.01 )
+  geom_histogram( aes(x=prediction), binwidth=0.01 )
 
-dats <- rbind( data.frame(pred=prediction_3$prediction_3, var = 'prediction_3'),
-              data.frame(pred=prediction_2b$pred, var = 'prediction_2b') )
+dats <- rbind( data.frame(pred=prediction_3$prediction_3, var='prediction_3'),
+               data.frame(pred=prediction_2b$pred, var='prediction_2b') )
 
 ggplot( dats, aes(pred, fill=var) ) + 
-  geom_histogram( alpha = 0.5, position = "identity", bins = 75 ) +
+  geom_histogram( alpha=0.5, position="identity", bins=75 ) +
   geom_vline( xintercept=prediction_1 )
 ```
 ![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
+```
+h1 <- ggplot( data=iris, aes(x=Sepal.Length) ) + geom_histogram( )
+h2 <- ggplot( data=iris, aes(x=Sepal.Length) ) + geom_histogram( binwidth=1 )
+h3 <- ggplot( data=iris, aes(x=Sepal.Length) ) +
+              geom_histogram( color="black", fill="blue", bins=10 )
+h4 <- ggplot( data=iris, aes(x=Sepal.Length, color=Species) ) + geom_histogram( binwidth=1 )
+grid.arrange( h1, h2, h3, h4, nrow=1, ncol=4 )
+
+h1 + facet_grid( Species~. )                     # row
+```
+【圖】
+<br>
 
 ## point
 * 探索兩個數值的關係
@@ -120,7 +133,7 @@ geom_line()
 
 ## curve
 ```
-stat_function(fun, geom = "line")
+stat_function( fun, geom = "line" )
 ```
 <br>
 
@@ -133,16 +146,16 @@ require(sp)
 require(lattice)
 require(grid)
 
-north <- list("SpatialPolygonsRescale", layout.north.arrow(type=1), offset=c(0.95,0.85), scale=0.1)
-scale <- list("SpatialPolygonsRescale", layout.scale.bar(),
-              offset=c(0.55, 0.03), scale=0.4, fill=c("transparent","black"))
-txt1 <- list("sp.text", c(0.55, 0.08), "0")
-txt2 <- list("sp.text", c(0.75, 0.08), "0.2")
-txt3 <- list("sp.text", c(0.95, 0.08), "0.4")
-raster_layout <- list(north, scale, txt1, txt2, txt3)
-cuts <- c(110, 120, 130, 140, 150, 160, 170, 180, 190, 200)
-spplot(raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0,0.9,len=9))), sp.layout=raster_layout, add=T)
-grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
+north <- list( "SpatialPolygonsRescale", layout.north.arrow(type=1), offset=c(0.95,0.85), scale=0.1 )
+scale <- list( "SpatialPolygonsRescale", layout.scale.bar(),
+               offset=c(0.55, 0.03), scale=0.4, fill=c("transparent","black") )
+txt1 <- list( "sp.text", c(0.55, 0.08), "0" )
+txt2 <- list( "sp.text", c(0.75, 0.08), "0.2" )
+txt3 <- list( "sp.text", c(0.95, 0.08), "0.4" )
+raster_layout <- list( north, scale, txt1, txt2, txt3 )
+cuts <- c( 110, 120, 130, 140, 150, 160, 170, 180, 190, 200 )
+spplot( raster(volcano), scales=list(draw=T), at=cuts, col.regions=palette(gray(seq(0,0.9,len=9))), sp.layout=raster_layout, add=T )
+grid.text( "XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90 )
 ```
 ![Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/spplot_example.jpeg)
 <br>
@@ -150,10 +163,10 @@ grid.text("XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90)
 ### Taiwan
 ```
 #(NOT RUN)
-spplot(county2010, "grouping", col.regions=col, 
+spplot( county2010, "grouping", col.regions=col, 
          colorkey=list(at=seq(0, 4, 1), labels=as.character(c( "0", "1", "2", "3", "4" )), 
                        col=col, space="left", height=0.4), 
-         main=name.title, xlim=c(118,124), ylim=c(21.6,26.3))
+         main=name.title, xlim=c(118,124), ylim=c(21.6,26.3) )
 ```
 ![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/injury%20map_A.jpeg)
 <br>
@@ -196,3 +209,4 @@ spplot(county2010, "grouping", col.regions=col,
 * [shinydashboard](https://rstudio.github.io/shinydashboard/)
 * [shiny from Rstudio](https://shiny.rstudio.com/gallery/)
 * [R](https://rstudio.com/resources/cheatsheets/)
+* [R M](http://www.hmwu.idv.tw/web/R/E04-hmwu_R-Map.pdf)
