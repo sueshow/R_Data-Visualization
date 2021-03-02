@@ -71,6 +71,13 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
 ![ggplot_bar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg)
 <br>
 
+```
+iris.mean <- aggregate( iris[,1:4], by=list(Species=iris$Species), FUN=mean ) 
+mydata <- cbind( stack(iris.mean[,-1]), Species=iris.mean$Species )
+ggplot( mydata, aes(x=ind, y=values, fill = Species) ) + geom_bar( position="dodge", stat="identity" )
+```
+<br>
+
 
 ## box
 * 探索不同類別與數值分佈的關係
@@ -114,6 +121,7 @@ h1 + facet_grid( Species~. )                     # row
 ```
 【圖】
 <br>
+
 
 ## point
 * 探索兩個數值的關係
