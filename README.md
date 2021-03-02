@@ -195,3 +195,4 @@ spplot(county2010, "grouping", col.regions=col,
 * [ggplot2](https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html)
 * [shinydashboard](https://rstudio.github.io/shinydashboard/)
 * [shiny from Rstudio](https://shiny.rstudio.com/gallery/)
+* [R](https://rstudio.com/resources/cheatsheets/)
