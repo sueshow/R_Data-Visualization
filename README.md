@@ -76,14 +76,17 @@ iris.mean <- aggregate( iris[,1:4], by=list(Species=iris$Species), FUN=mean )
 mydata <- cbind( stack(iris.mean[,-1]), Species=iris.mean$Species )
 ggplot( mydata, aes(x=ind, y=values, fill = Species) ) + geom_bar( position="dodge", stat="identity" )
 ```
+【圖】
 <br>
 
 
-## box
+## Box
 * 探索不同類別與數值分佈的關係
 ```
-geom_boxplot()
+mtcars$cyl <- factor(mtcars$cyl)
+ggplot(data=mtcars, aes(x=cyl, y=disp)) + geom_boxplot()
 ```
+【圖】
 <br>
 
 
@@ -126,18 +129,21 @@ h1 + facet_grid( Species~. )                     # row
 ## point
 * 探索兩個數值的關係
 ```
-p <- ggplot( data=mtcars, aes(x=wt, y=mpg, label = rownames(mtcars)) )
-p + geom_point()
-p + geom_text( size=3 ) #以字呈現
+p <- ggplot( data=mtcars, aes(x=wt, y=mpg, label=rownames(mtcars)) )
+p + geom_point()          #以點呈現
+p + geom_text( size=3 )   #以字呈現
 p + geom_label()
 ```
+【圖】
 <br>
 
 
 ## line
 * 探索數值與日期 (時間) 的關係
 ```
-geom_line()
+p <- ggplot( data=iris, aes(x=Sepal.Length, y=Sepal.Width, shape=Species, color=Species) )+
+             geom_point()
+p + geom_line( aes(y=Sepal.Width) )
 ```
 <br>
 
