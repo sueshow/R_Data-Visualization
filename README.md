@@ -126,7 +126,10 @@ h1 + facet_grid( Species~. )                     # row
 ## point
 * 探索兩個數值的關係
 ```
-geom_point()
+p <- ggplot( data=mtcars, aes(x=wt, y=mpg, label = rownames(mtcars)) )
+p + geom_point()
+p + geom_text( size=3 ) #以字呈現
+p + geom_label()
 ```
 <br>
 
