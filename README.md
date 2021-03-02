@@ -8,6 +8,16 @@ library(tidyverse)
 ```
 <br>
 
+
+## Scatter Plot
+```
+ggplot(data=iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species)) +
+geom_point(size=3)
+```
+【圖】
+<br>
+
+
 ## ErrorBar
 ```
 plotData <- tribble( ~level, ~mean, ~cil, ~ciu,
@@ -24,6 +34,7 @@ plotData %>%
 ```
 ![ggplot_errorbar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_errorbar.jpeg)
 <br>
+
 
 ## Bar
 * 探索類別
@@ -59,12 +70,14 @@ ggplot( TFMqe, aes(x=NTopQualityEmbryos,
 ![ggplot_bar](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_bar.jpeg)
 <br>
 
+
 ## box
 * 探索不同類別與數值分佈的關係
 ```
 geom_boxplot()
 ```
 <br>
+
 
 ## Histogram
 * 探索數值分佈
@@ -88,12 +101,14 @@ ggplot( dats, aes(pred, fill=var) ) +
 ![ggplot_histogram](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot_histogram.jpeg)
 <br>
 
+
 ## point
 * 探索兩個數值的關係
 ```
 geom_point()
 ```
 <br>
+
 
 ## line
 * 探索數值與日期 (時間) 的關係
@@ -102,11 +117,13 @@ geom_line()
 ```
 <br>
 
+
 ## curve
 ```
 stat_function(fun, geom = "line")
 ```
 <br>
+
 
 ## Map
 ### Sp
@@ -140,6 +157,7 @@ spplot(county2010, "grouping", col.regions=col,
 ```
 ![Taiwan Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/injury%20map_A.jpeg)
 <br>
+
 
 ## Dashboard
 ### 簡介
