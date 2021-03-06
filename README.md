@@ -177,6 +177,7 @@ grid.text( "XXX (m)", x=unit(0.95, "npc"), y=unit(0.50, "npc"), rot=-90 )
 ![Map](https://github.com/sueshow/R_Data-Visualization/blob/main/output/spplot_example.jpeg)
 <br>
 
+
 ### Taiwan
 ```
 #(NOT RUN)
@@ -214,12 +215,13 @@ spplot( county2010, "grouping", col.regions=col,
     * 地圖：`ggmap` 套件或 `leaflet` 套件支援互動式地圖
 * 重要議題：
   * 快速將資料載入：考慮批次方式，先作預處理，降低資料量，以加快資料存取速度
-
 <br>
+
 
 ## 更多參考資訊
 ![更多參考資訊](https://github.com/sueshow/R_Data-Visualization/blob/main/picture/ggplot.png)
 <br>
+
 
 ## 參考資料
 * [ggplot2](https://beta.rstudioconnect.com/content/3279/ggplot_tutorial.html)
